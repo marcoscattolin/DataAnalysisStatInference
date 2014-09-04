@@ -1,7 +1,7 @@
 ---
 title: "project title"
-author: "author name"
-date: "date"
+author: "Marco Scattolin"
+date: "30th September 2014"
 output:
   html_document:
     theme: cerulean
@@ -11,7 +11,7 @@ output:
 
 <!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
 ```{r echo=FALSE}
-
+load(url("http://bit.ly/dasi_gss_data"))
 ```
 
 <!-- In the remainder of the document, add R code chunks as needed -->
