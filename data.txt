@@ -1,0 +1,15 @@
+"degree","tvhours"
+"High School",NA
+"High School",6
+"High School",2
+"High School",0
+"Graduate",1
+"Lt High School",NA
+"Lt High School",1
+"Lt High School",NA
+"Lt High School",10
+"Bachelor",3
+"High School",NA
+"High School",4
+"High School",4
+"High School",NA

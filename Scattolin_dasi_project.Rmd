@@ -18,20 +18,38 @@ load(url("http://bit.ly/dasi_gss_data"))
 
 ### Introduction:
 
-Insert introduction here...
+Quetion: Is there a relationship between the highest school degree a person has achieved and the average number of tv hours per day he usually watches?
+
+#What is your research question? Why do you care? Why should others care?
 
 ### Data:
 
-Insert data section here...
+Data collection: Describe how the data were collected.
+Cases: What are the cases? (Remember: case = units of observation or units of experiment)
+Variables: What are the two variables you will be studying? State the type of each variable.
+Study: What is the type of study? Is it an observational study or an experiment? Explain how you've arrived at your conclusion using information on the sampling and/or experimental design.
+Scope of inference - generalizability: Identify the population of interest, and whether the findings from this analysis can be generalized to that population, or, if not, a subsection of that population. Explain why or why not. Also discuss any potential sources of bias that might prevent generalizability.
+Scope of inference - causality: Can these data be used to establish causal links between the variables of interest? Explain why or why not.
 
 ### Exploratory data analysis:
 
-Insert exploratory data analysis here...
+Calculate and discuss relevant descriptive statistics, including summary statistics and visualizations of the data. Also address what the exploratory data analysis suggests about your research question.
 
 ### Inference:
 
-Insert inference section here...
+te hypotheses
+Check conditions
+State the method(s) to be used and why and how
+Perform inference
+Interpret results
+If applicable, state whether results from various methods agree
 
 ### Conclusion:
 
-Insert conclusion here...
+Write a brief summary of your findings without repeating your statements from earlier. Include a discussion of what you have learned about your research question and the data you collected, and include ideas for possible future research.
+
+### References:
+Include a citation for your data, and if your data set is online, provide a link to the source. Also list other references (if any). 
+
+### Appendix:
+Take 1 page of your data set and attach it to your proposal. If your data fits in one page, great. If you have too many observations and it won't fit, that's ok too, just crop it at one page. However your print out should contain all relevant columns (this shouldn't be an issue since you are working with one or two variables for your project).
