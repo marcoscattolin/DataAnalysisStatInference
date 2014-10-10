@@ -1,7 +1,7 @@
 ---
-title: "project title"
+title: Relationship between watched hours of tv and school degree
 author: "Marco Scattolin"
-date: "30th September 2014"
+date: "9th October 2014"
 output:
   html_document:
     theme: cerulean
@@ -10,7 +10,9 @@ output:
 <!-- For more info on RMarkdown see http://rmarkdown.rstudio.com/ -->
 
 <!-- Enter the code required to load your data in the space below. The data will be loaded but the line of code won't show up in your write up (echo=FALSE) in order to save space-->
-```{r echo=FALSE}
+```{r echo=FALSE,message=F}
+library(dplyr)
+source("http://bit.ly/dasi_inference")
 load(url("http://bit.ly/dasi_gss_data"))
 ```
 
@@ -18,38 +20,64 @@ load(url("http://bit.ly/dasi_gss_data"))
 
 ### Introduction:
 
-Quetion: Is there a relationship between the highest school degree a person has achieved and the average number of tv hours per day he usually watches?
+Research question aims at investigating wether a relationship exists between the highest school degree a person has achieved and the average number of tv hours per day he usually watches? I think answer to this is relevant for the advertising industry, since it can generate insights on the actual targeting capabilities of tv advertising according to people education levels.
 
-#What is your research question? Why do you care? Why should others care?
 
 ### Data:
 
-Data collection: Describe how the data were collected.
-Cases: What are the cases? (Remember: case = units of observation or units of experiment)
-Variables: What are the two variables you will be studying? State the type of each variable.
-Study: What is the type of study? Is it an observational study or an experiment? Explain how you've arrived at your conclusion using information on the sampling and/or experimental design.
-Scope of inference - generalizability: Identify the population of interest, and whether the findings from this analysis can be generalized to that population, or, if not, a subsection of that population. Explain why or why not. Also discuss any potential sources of bias that might prevent generalizability.
-Scope of inference - causality: Can these data be used to establish causal links between the variables of interest? Explain why or why not.
+- Data collection: data covers answers to surveys independently drawn sample of English-speaking 
+persons 18 years of age or over, living in non-institutional arrangements within the United States. Data have been gathered over the period 1972-2012. Starting in 2006 Spanish-speakers were added to the target population.
+
+- Cases: each case corresponds to the answers an individual gave to the survey in a specific year in which the survey has been taken. **Number of cases is 57061**.
+
+- Variables: the project will focus on analysis of variable **degree** categorical, ordinal variable with 5 categories; and variable **tvhours** numerical, discrete variable
+
+- Study: study is based on a-posteriori observations on data gathered from a random sample. It is therefore an **observational study**.
+
+- Generalizability: population of interest is english-speaking persons 18 years of age or over, living in non-institutional arrangements within the United States. Answers relate to independently drawn sample from the population of interest and therefore **can be generalized**.
+
+- Causality: since this is an observational study, **no causality** relationship can be established
+
+[TODO] DEFINE SOURCES OF BIAS
 
 ### Exploratory data analysis:
 
-Calculate and discuss relevant descriptive statistics, including summary statistics and visualizations of the data. Also address what the exploratory data analysis suggests about your research question.
+```{r echo=FALSE}
+gss <- tbl_df(gss)
+gss <- select(gss, degree, tvhours) %>% filter(!is.na(degree) & !is.na(tvhours)) %>% group_by(degree)
+summarise(gss,num = n(), mean = mean(tvhours),sd = sd(tvhours))
+```
+[TODO] Calculate and discuss relevant descriptive statistics, including summary statistics and visualizations of the data. Also address what the exploratory data analysis suggests about your research question.
 
 ### Inference:
 
-te hypotheses
-Check conditions
-State the method(s) to be used and why and how
-Perform inference
-Interpret results
-If applicable, state whether results from various methods agree
+Hypotheses: I will compare means among 5 groups of people depending on education level. Therefore:
+
+- H0: The mean of tv hours watched per day is the same across all groups: mu1 = mu2 = mu3 = mu4 = mu5
+- HA: at least one pair of means are different from each other
+
+- Conditions: [TODO] sampled observations are independent, groups are independent of each other as well. 
+
+- Method used: I will use **ANOVA** method to compare 5 means across 5 groups.
+
+- Perform inference: [TODO] 
+```{r echo=FALSE}
+anova(lm(data = gss, tvhours~degree))
+
+```
+
+- Interpret results: [TODO] 
+
 
 ### Conclusion:
-
+[TODO] 
 Write a brief summary of your findings without repeating your statements from earlier. Include a discussion of what you have learned about your research question and the data you collected, and include ideas for possible future research.
 
 ### References:
-Include a citation for your data, and if your data set is online, provide a link to the source. Also list other references (if any). 
+Smith, Tom W., Michael Hout, and Peter V. Marsden. General Social Survey, 1972-2012 [Cumulative File]. ICPSR34802-v1. Storrs, CT: Roper Center for Public Opinion Research, University of Connecticut /Ann Arbor, MI: Inter-university Consortium for Political and Social Research [distributors], 2013-09-11.
+
+Persistent URL: <a href= "http://doi.org/10.3886/ICPSR34802.v1">http://doi.org/10.3886/ICPSR34802.v1</a>
 
 ### Appendix:
+[TODO] 
 Take 1 page of your data set and attach it to your proposal. If your data fits in one page, great. If you have too many observations and it won't fit, that's ok too, just crop it at one page. However your print out should contain all relevant columns (this shouldn't be an issue since you are working with one or two variables for your project).
