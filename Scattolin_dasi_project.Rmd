@@ -44,7 +44,7 @@ persons 18 years of age or over, living in non-institutional arrangements within
 
 Looking at the selected variable, it's clear that for some years, percentage of tv hours missing is extremely relevant.
 
-```{r echo=FALSE}
+```{r echo=FALSE,fig.width=10, fig.height=10}
 par(mfrow=c(2,1))
 mosaicplot(gss$year~!is.na(gss$degree),  main= "Availability of degree data over survey years", ylab = "Degree data available?", xlab= "Survey year", col = c("red","black"))
 mosaicplot(gss$year~!is.na(gss$tvhours), main = "Availability of tv hours data over and survey years", ylab = "TV hours data available?", xlab = "Survey year", col = c("red","black"))
@@ -61,7 +61,7 @@ gss <- tbl_df(gss) %>%
 
 Following figure illustrates the relationship among the two variables. **TV hours** distrbution are **right skewed** among all groups, moreover variability across groups is quite different.
 
-```{r message=F}
+```{r message=F, fig.width=10}
 library(ggplot2)
 par(mfrow=c(1,1))
 qplot(data = gss, degree,tvhours,geom="boxplot", fill = degree, main="TV hours distribution across groups") + theme_bw()
@@ -91,7 +91,7 @@ summary
 
 Looking at the **confidence inetrvals** for the means we see that they are well separated across groups and **do not overlap**, so it's very likely that I will found evidence of differences when comparing the means.
 
-```{r message=F}
+```{r message=F, fig.width=10}
 limits <- aes(ymax = summary$upper_ci, ymin=summary$lower_ci)
 qplot(data=summary,degree,tvh_mean, col = degree, main="Means of tv hours and 95% conf.int.", ylab ="tv hours means") + geom_errorbar(limits, width = 0.7) + theme_bw()
 ```
